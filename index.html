@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<!-- <link rel="icon" type="image/x-icon" href="" /> -->
+	<title>marcy clock</title>
+</head>
+
+<body class="bg-dark text-white font-poppins overflow-hidden selection:bg-white selection:text-dark">
+	<div id="app">
+		<h1 class="text-7xl mb-6 text-black tracking-tight">
+			(this is just a sample i havent added functionality yet)
+		</h1>
+
+		<!-- container div -->
+		<div class="md:w-4/5 w-11/12 mx-auto">
+			<div class="md:w-1/3 w-5/6 mx-auto md:my-16 my-12 text-center" id="timeContainer">
+				<p class="md:text-5xl text-4xl text-tan text-nowrap" id="timeDisplay">10:43 am</p>
+				<p class="md:text-xl text-lg text-subtext2 text-nowrap" id="dateDisplay">Thu, Sep 11</p>
+			</div>
+
+			<!-- schedule type display (affected by day) -->
+			<p class="text-extra-subtext italic ml-1 mb-1">
+				Displaying schedule for <span id="scheduleType">Tue/Thu</span>
+			</p>
+
+			<div class="w-full mx-auto" id="scheduleContent">
+
+				<!-- -- TEMPLATES TO BE USED FOR DYNAMIC GENERATION BELOW -- -->
+
+				<!-- PAST class -->
+				<div class="bg-fg-night rounded-xl text-black line-through mb-1">
+					<div class="flex md:flex-row flex-col justify-between text-2xl py-5 px-4">
+						<p class="font-medium md:text-left text-center">
+							<span id="nameOfClass">Precalculus:</span>
+						</p>
+						<p class="font-jetbrains md:text-right text-center">
+							<span id="startTime">8:00 am</span> --> <span id="endTime">9:45 am</span>
+						</p>
+					</div>
+				</div>
+
+				<!-- current class -->
+				<div class="bg-purple rounded-xl text-fg-night mb-1">
+					<div class="flex md:flex-row flex-col justify-between text-2xl py-5 px-4" id=''>
+						<p class="font-semibold md:text-left text-center">
+							<span id="nameOfClass">Composition</span>:
+						</p>
+						<p class="font-jetbrains font-bold md:text-right text-center">
+							<span id="startTime">10:15 am</span> --> <span id="endTime">11:45 am</span>
+						</p>
+					</div>
+				</div>
+
+				<!-- FUTURE class -->
+				<div class="bg-blacker rounded-xl mb-1">
+					<div class="flex md:flex-row flex-col justify-between text-2xl py-5 px-4">
+						<p class="font-medium md:text-left text-center">
+							<span id="nameOfClass">Java I:</span>
+						</p>
+						<p class="font-jetbrains font-medium md:text-right text-center">
+							<span id="startTime">2:00 pm</span> --> <span id="endTime">3:45 pm</span>
+						</p>
+					</div>
+				</div>
+
+			</div> <!-- id: scheduleContent-->
+
+			<p class="text-subtext2 ml-1 mb-1">
+				Time left this class: <span class="text-tan" id="scheduleType">1h 2m</span>
+			</p>
+
+		</div> <!-- container-->
+
+	</div> <!-- id: app-->
+	<script type=" module" src="/src/main.ts"></script>
+</body>
+
+</html>
