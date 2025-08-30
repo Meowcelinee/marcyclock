@@ -14,21 +14,20 @@
 		<!-- container div -->
 		<div class="md:w-4/5 w-11/12 mx-auto">
 			<div class="md:w-1/3 w-5/6 mx-auto md:my-16 my-12 text-center" id="timeContainer">
-				<p class="md:text-5xl text-4xl text-tan text-nowrap" id="timeDisplay">10:43 am</p>
-				<p class="md:text-xl text-lg text-subtext2 text-nowrap" id="dateDisplay">Thu, Sep 11</p>
+				<p class="md:text-5xl text-4xl text-tan text-nowrap" id="timeDisplay">8:46 am</p>
+				<p class="md:text-xl text-lg text-subtext2 text-nowrap" id="dateDisplay">Tue, Sep 11</p>
 			</div>
 
 			<!-- schedule type display (affected by day) -->
 			<p class="text-extra-subtext italic ml-1 mb-1">
-				Displaying schedule for <span id="scheduleType">[unknown]</span>
+				Displaying schedule for <span id="scheduleType">...</span>
 			</p>
 
 			<div class="w-full mx-auto" id="scheduleContent">
 			</div>
 
-			<p class="text-subtext2 ml-1 mb-1">
-				Time left this class: <span class="text-tan" id="scheduleType">1h 2m</span>
-			</p>
+			<!-- time remaining in class -->
+			<p class="text-subtext2 ml-1 mb-1" id="timeLeft"></p>
 		</div>
 
 	</div>
