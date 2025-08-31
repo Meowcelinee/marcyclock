@@ -22,6 +22,50 @@ export class Schedule {
         return this.times.end;
     }
 
+    private set startTime({ hour, minute }: { hour: number; minute: number }) {
+        const newStartTime = DateTime.fromObject({
+            hour: hour,
+            minute: minute,
+        });
+
+        this.times.start = newStartTime;
+    }
+
+    private set endTime({ hour, minute }: { hour: number; minute: number }) {
+        const newEndTime = DateTime.fromObject({
+            hour: hour,
+            minute: minute,
+        });
+
+        this.times.end = newEndTime;
+    }
+
+    public localize(): Schedule {
+        const hourOffset = DateTime.now().offset / 60;
+
+        const newStartTime = DateTime.fromObject({
+            hour: this.startTime.hour + hourOffset,
+            minute: this.startTime.minute,
+        });
+
+        const newEndTime = DateTime.fromObject({
+            hour: this.endTime.hour + hourOffset,
+            minute: this.endTime.minute,
+        });
+
+        this.startTime = {
+            hour: newStartTime.hour,
+            minute: newStartTime.minute,
+        };
+
+        this.endTime = {
+            hour: newEndTime.hour,
+            minute: newEndTime.minute,
+        };
+
+        return this;
+    }
+
     public static fromObject({
         name,
         start,
