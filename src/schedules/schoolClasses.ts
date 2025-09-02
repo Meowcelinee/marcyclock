@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon';
-import { Schedule } from './schoolClassSchedules';
+import { Schedule } from './Schedule';
 
 export const INTREL = Schedule.fromObject({
     name: 'International Relations',
@@ -34,11 +34,9 @@ export const JAVA = Schedule.fromObject({
 const oddSched = [INTREL, CCSUCCESS];
 const evenSched = [PRECALC, COMP, JAVA];
 
-function getClasses(): Schedule[] | null {
+export function getClasses(): Schedule[] {
     const weekday = DateTime.local().weekday;
-    if (weekday > 4) return null;
+    if (weekday > 4) return [];
 
-    return weekday % 2 !== 0 ? evenSched : oddSched;
+    return [evenSched, oddSched][weekday % 2];
 }
-
-export const classes = getClasses();
