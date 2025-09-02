@@ -1,5 +1,5 @@
 import { DateTime, Interval } from 'luxon';
-import { Schedule } from '../schedules/schoolClassSchedules';
+import { Schedule } from '../schedules/Schedule';
 
 export default function classOccuring(schedule: Schedule): boolean {
     return Interval.fromDateTimes(

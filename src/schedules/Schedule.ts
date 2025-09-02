@@ -74,7 +74,7 @@ export class Schedule {
         name: string;
         start: string;
         end: string;
-    }) {
+    }): Schedule {
         const [startTime, startTimeOfDay]: string[] = start.split(' ');
         const [endTime, endTimeOfDay]: string[] = end.split(' ');
 

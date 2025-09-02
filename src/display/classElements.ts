@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon';
-import { Schedule } from '../schedules/schoolClassSchedules';
+import { Schedule } from '../schedules/Schedule';
 
 const classClassNames = {
     wrapperDiv: {
