@@ -1,6 +1,13 @@
 import { DateTime } from 'luxon';
 import { Schedule } from './Schedule';
 
+const classSortFn = (classA: Schedule, classB: Schedule) => {
+    const { hour: aHour, minute: aMin } = classA.startTime;
+    const { hour: bHour, minute: bMin } = classB.startTime;
+
+    return aHour * 60 + aMin - (bHour * 60 + bMin);
+};
+
 export const INTREL = Schedule.fromObject({
     name: 'International Relations',
     start: '20:00',
@@ -31,8 +38,8 @@ export const JAVA = Schedule.fromObject({
     end: '19:45',
 });
 
-const oddSched = [INTREL, CCSUCCESS];
-const evenSched = [PRECALC, COMP, JAVA];
+const oddSched = [INTREL, CCSUCCESS].sort(classSortFn);
+const evenSched = [PRECALC, COMP, JAVA].sort(classSortFn);
 
 export function getClasses(): Schedule[] {
     const weekday = DateTime.local().weekday;
