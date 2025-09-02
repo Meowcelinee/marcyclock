@@ -1,18 +1,20 @@
 import { DateTime, Interval } from 'luxon';
-import { Schedule } from '../../schedules/Schedule';
+import { getClasses } from '../../schedules/schoolClasses';
+import getCurrentClass from '../../util/getCurrentClass';
 
 // prettier-ignore
 export default function classTimeRemaining(): string {
-    const currentClass: Schedule = Schedule.fromObject({ name: 'TemporaryClassUntilIImplementMoreShit', start: '12:00', end: '13:45' });
+    const classes = getClasses();
+    const currentClass = getCurrentClass(classes);
 
-    if (!currentClass) return '';
+    if (!currentClass) return 'No class occuring';
 
     return `Time left in this class: ${
         Interval.fromDateTimes(
             DateTime.now().toLocal(), // current time (localized)
             DateTime.fromObject({
-                hour: currentClass.endTime.hour,
-                minute: currentClass.endTime.minute
+                hour: getCurrentClass(classes)!.endTime.hour,
+                minute: getCurrentClass(classes)!.endTime.minute
             }) // end time
         )
         .toDuration(['hours', 'minutes']) // get time between now and end of class
