@@ -4,6 +4,7 @@ import { DateTime } from 'luxon';
 import { getClasses } from './schedules/schoolClasses';
 import classTimeRemaining from './display/time/classTimeRemaining';
 import displayTime from './display/time/displayTime';
+import refreshClassDisplay from './display/refreshClassDisplay';
 
 const scheduleType = document.getElementById('scheduleType')!;
 const timeLeft = document.getElementById('timeLeft')!;
@@ -21,5 +22,6 @@ displayTime();
 setInterval(() => {
     scheduleType.textContent = DateTime.local().weekdayLong;
     timeLeft.textContent = classTimeRemaining();
+    refreshClassDisplay();
     displayTime();
 }, 250);
