@@ -5,6 +5,7 @@ const classSortFn = (classA: Schedule, classB: Schedule) => {
     const { hour: aHour, minute: aMin } = classA.startTime;
     const { hour: bHour, minute: bMin } = classB.startTime;
 
+    // convert to minutes, calculate which class is first based on which number is smaller
     return aHour * 60 + aMin - (bHour * 60 + bMin);
 };
 
