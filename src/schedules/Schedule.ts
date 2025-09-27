@@ -1,5 +1,12 @@
 import { DateTime } from 'luxon';
-import type { ClassType } from './schoolClassTypes';
+
+export type ClassType = {
+    name: string;
+    times: {
+        start: DateTime;
+        end: DateTime;
+    };
+};
 
 export class Schedule {
     private name;
