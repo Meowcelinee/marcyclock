@@ -73,6 +73,14 @@ export class Schedule {
         return this;
     }
 
+    /**
+     * Creates a new Schedule object from the passed parameter object.
+     *
+     * @param name - A string for the name of the school class.
+     * @param start - A string for the starting time for the school class - formatted as `hh:mm`. 12hr and 24hr supported.
+     * @param end - A string for the ending time for the school class - formatted as `hh:mm`. 12hr and 24hr supported.
+     * @returns new Schedule
+     */
     public static fromObject({
         name,
         start,
